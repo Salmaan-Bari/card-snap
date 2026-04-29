@@ -231,7 +231,31 @@ This avoids rewriting business logic when real pricing is introduced.
 
 ---
 
-## 10) Development Phases (Codex-Friendly Small Tasks)
+## 10) Future Monetisation / Payments
+
+Payments are not part of the MVP, but the app should be structured so they can be added later without rewriting the core scan-and-result flow.
+
+Possible future payment features:
+- Free tier with limited scans per day
+- Paid subscription for unlimited scans or advanced analysis
+- One-off scan credit packs
+- Premium saved collection tracking
+- Price alerts and portfolio-style value tracking
+- Advanced condition/value reports
+
+Likely payment providers:
+- RevenueCat for mobile subscriptions and in-app purchases
+- Stripe if a web dashboard or external checkout is added later
+
+Implementation notes:
+- Add payments only after the core identify + estimate flow is stable
+- Keep payment logic separate from card analysis logic
+- Do not store payment secrets in the public repo
+- Use `.env.example` placeholders only for any future payment-related configuration
+
+---
+
+## 11) Development Phases (Codex-Friendly Small Tasks)
 
 ### Phase 0: Foundation
 - Create repo folders (`mobile`, `backend`, `docs`)
@@ -262,9 +286,14 @@ This avoids rewriting business logic when real pricing is introduced.
 - Swap mock identifier with AI model call
 - Add pricing provider abstraction and first real data source
 
+### Phase 6: Future monetisation
+- Add usage limits and scan counters
+- Add authentication and user entitlements
+- Add RevenueCat or Stripe integration once there is clear demand
+
 ---
 
-## 11) Exact Next 5 Implementation Tasks After Planning
+## 12) Exact Next 5 Implementation Tasks After Planning
 
 1. **Scaffold project directories**
    - Create `mobile/`, `backend/`, and minimal starter files.
@@ -283,4 +312,4 @@ This avoids rewriting business logic when real pricing is introduced.
 
 ---
 
-This plan intentionally prioritizes shipping a usable MVP quickly while preserving a clean path to AI and real market pricing later.
+This plan intentionally prioritizes shipping a usable MVP quickly while preserving a clean path to AI, real market pricing, and future monetisation later.
